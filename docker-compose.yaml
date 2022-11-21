@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  producer:
+    container_name: go-rabbit-producer
+    ports:
+      - "3000:3000"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      AMQP_SERVER_URL: 'amqp://lab:lab@host.docker.internal:5672/'
+    restart: always
+#    network_mode: 'host'
